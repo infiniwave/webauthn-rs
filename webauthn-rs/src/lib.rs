@@ -1337,9 +1337,6 @@ impl Webauthn {
             })
             .and_then(|b| self.core.generate_challenge_authenticate(b))
             .map(|(mut rcr, ast)| {
-                // Force conditional ui - this is not a generic discoverable credential
-                // workflow!
-                rcr.mediation = Some(Mediation::Conditional);
                 (rcr, DiscoverableAuthentication { ast })
             })
     }
