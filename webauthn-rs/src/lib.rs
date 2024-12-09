@@ -1384,10 +1384,7 @@ impl Webauthn {
         &self,
         reg: &PublicKeyCredential,
         mut state: DiscoverableAuthentication,
-        creds: &[DiscoverableKey],
     ) -> WebauthnResult<AuthenticationResult> {
-        let creds = creds.iter().map(|dk| dk.cred.clone()).collect();
-        state.ast.set_allowed_credentials(creds);
         self.core.authenticate_credential(reg, &state.ast)
     }
 }
