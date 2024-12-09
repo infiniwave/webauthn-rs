@@ -564,7 +564,7 @@ impl Webauthn {
             )?
             .attestation(AttestationConveyancePreference::None)
             .credential_algorithms(self.algorithms.clone())
-            .require_resident_key(false)
+            .require_resident_key(true)
             .authenticator_attachment(None)
             .user_verification_policy(UserVerificationPolicy::Required)
             .reject_synchronised_authenticators(false)
